@@ -1,4 +1,4 @@
-# LiDAEtag_msg
+# LiDAETag_msg
 ## Overview
 
 This is a ROS package for sending lidartag msgs via ROS.
