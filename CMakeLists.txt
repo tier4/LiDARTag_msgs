@@ -1,30 +1,31 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(lidartag_msgs)
 
-find_package(
-    catkin REQUIRED COMPONENTS
-    message_generation
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_EXTENSIONS OFF)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+endif()
+
+find_package(ament_cmake_auto REQUIRED)
+ament_auto_find_build_dependencies()
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/LidarTagDetection.msg"
+  "msg/LidarTagDetectionArray.msg"
+  DEPENDENCIES
     std_msgs
-    geometry_msgs
     sensor_msgs
+    geometry_msgs
 )
 
-add_message_files(
-    FILES
-    LiDARTagDetection.msg
-    LiDARTagDetectionArray.msg
-)
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
 
-generate_messages(
-    DEPENDENCIES std_msgs geometry_msgs sensor_msgs
-)
-
-
-catkin_package(
-    CATKIN_DEPENDS message_runtime
-)
-
-###########
-## Build ##
-###########
-
+ament_auto_package()
