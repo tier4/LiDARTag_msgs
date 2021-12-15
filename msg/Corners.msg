@@ -32,7 +32,9 @@ geometry_msgs/Point top
 geometry_msgs/Point down
 geometry_msgs/Point left
 geometry_msgs/Point right
+geometry_msgs/Point[] corners
 
 std_msgs/Header header
 uint32 id
+uint32 rotation
 uint32 frame_index
