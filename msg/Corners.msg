@@ -28,13 +28,15 @@
 # AUTHOR: Bruce JK Huang (bjhuang[at]umich.edu)
 # WEBSITE: https://www.brucerobot.com/
 
-geometry_msgs/Point top
-geometry_msgs/Point down
-geometry_msgs/Point left
-geometry_msgs/Point right
+# Legacy
+geometry_msgs/Point bottom_left
+geometry_msgs/Point bottom_right
+geometry_msgs/Point top_right
+geometry_msgs/Point top_left
+
 geometry_msgs/Point[] corners
 
 std_msgs/Header header
 uint32 id
 uint32 rotation
-uint32 frame_index
+#uint32 frame_index

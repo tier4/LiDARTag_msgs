@@ -28,7 +28,7 @@
 # WEBSITE: https://www.brucerobot.com/
 
 std_msgs/Header header
-int64 frame_index
+#int64 frame_index
 int32 id
 float64 size
 geometry_msgs/Pose pose
